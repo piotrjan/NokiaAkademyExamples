@@ -1,7 +1,6 @@
 #include <iostream>
 #include <chrono>
 #include <future>
-
 using namespace std::chrono_literals;
 
 int addNumbers(int a, int b)
@@ -14,11 +13,9 @@ int addNumbers(int a, int b)
 
 int main()
 {
-    // default policy std::launch::async | std::launch::deferred which lets to decide which policy will be used
-    std::future<int> futureWithResultOfAddition = std::async(addNumbers, 1, 2);
+    std::future<int> futureWithResultOfAddition = std::async(std::launch::deferred, addNumbers, 1, 2);
 
     std::this_thread::sleep_for(500ms);
-
     std::cout << "Starting waiting for result.." << std::endl;
 
     std::cout << "The result is " << futureWithResultOfAddition.get() << std::endl;
