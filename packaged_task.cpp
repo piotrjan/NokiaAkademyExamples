@@ -5,7 +5,7 @@ using namespace std::chrono_literals;
 
 int addNumbers(int a, int b)
 {
-    std::cout << "Thinking..." << std::endl;
+    std::cout << "Packaged task is thinking..." << std::endl;
     std::this_thread::sleep_for(1s);
     std::cout << "I know!" << std::endl;
     return a + b;
